@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Submit a feature request for Once UI
+about: Submit a feature request for poweredbyethereum.org
 ---
 
 ### Thank you for taking the time to submit a feature request. We appreciate your contribution.

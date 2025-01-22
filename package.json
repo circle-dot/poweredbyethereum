@@ -1,5 +1,5 @@
 {
-  "name": "@once-ui-system/nextjs-starter",
+  "name": "@circle-dot/poweredbyethereum",
   "version": "0.5",
   "scripts": {
     "dev": "next dev --turbopack",

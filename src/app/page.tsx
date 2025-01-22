@@ -50,7 +50,7 @@ export default function Home() {
   const [intro, setIntro] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [tags, setTags] = useState<string[]>(["UX / UI", "Design systems", "AI / ML"]);
+  const [tags, setTags] = useState<string[]>(["Ethereum", "Blockchain", "Decentralization"]);
   const [twoFA, setTwoFA] = useState(false);
 
   const handleSelect = (value: string) => {
@@ -60,19 +60,19 @@ export default function Home() {
 
   const links = [
     {
-      href: "https://once-ui.com/docs/theming",
-      title: "Themes",
-      description: "Style your app in minutes",
+      href: "https://poweredbyethereum.org/docs/security",
+      title: "Security",
+      description: "Learn about decentralized security",
     },
     {
-      href: "https://once-ui.com/docs/RowComponent",
-      title: "Layout",
-      description: "Build responsive layouts",
+      href: "https://poweredbyethereum.org/docs/interoperability",
+      title: "Interoperability",
+      description: "Integrate with Ethereum-based tools",
     },
     {
-      href: "https://once-ui.com/docs/typography",
-      title: "Typography",
-      description: "Scale text automatically",
+      href: "https://poweredbyethereum.org/docs/community",
+      title: "Community",
+      description: "Join the Ethereum community",
     },
   ];
 
@@ -121,38 +121,40 @@ export default function Home() {
           paddingLeft="32"
           paddingY="20"
         >
-          <Logo size="m" icon={false} href="https://once-ui.com" />
+          <Text variant="body-strong-m" as="a" href="https://poweredbyethereum.org">
+            powered by ethereum
+          </Text>
           <Row gap="12" hide="s">
-            <Button
-              href="https://discord.com/invite/5EyAQ4eNdS"
+            {/* <Button
+              href="https://discord.com/invite/ethereum"
               prefixIcon="discord"
               size="s"
               label="Discord"
               weight="default"
               variant="tertiary"
-            />
+            /> */}
             <Button
-              href="https://github.com/once-ui-system/nextjs-starter"
+              href="https://github.com/circle-dot/poweredbyethereum"
               prefixIcon="github"
               size="s"
               label="GitHub"
               weight="default"
               variant="tertiary"
             />
-            <StyleOverlay top="20" right="24" />
+            {/* <StyleOverlay top="20" right="24" /> */}
           </Row>
           <Row gap="16" show="s" horizontal="center" paddingRight="24">
-            <IconButton
-              href="https://discord.com/invite/5EyAQ4eNdS"
+            {/* <IconButton
+              href="https://discord.com/invite/ethereum"
               icon="discord"
               variant="tertiary"
-            />
+            /> */}
             <IconButton
-              href="https://github.com/once-ui-system/nextjs-starter"
+              href="https://github.com/circle-dot/poweredbyethereum"
               icon="github"
               variant="tertiary"
             />
-            <StyleOverlay top="20" right="24" />
+            {/* <StyleOverlay top="20" right="24" /> */}
           </Row>
         </Row>
       </Row>
@@ -232,13 +234,13 @@ export default function Home() {
               </Text>
             </InlineCode>
             <Heading wrap="balance" variant="display-default-l" align="center" marginBottom="16">
-              We let designers code and developers design
+              Harness the power of Ethereum
             </Heading>
             <Button
               id="readDocs"
               target="_blank"
-              label="Open docs"
-              href="https://once-ui.com/docs"
+              label="Open design system"
+              href="https://poweredbyethereum.org/docs"
               variant="secondary"
               arrowIcon
             />
@@ -258,7 +260,7 @@ export default function Home() {
                 ]}
               />
               <Heading marginBottom="12" as="h2" align="center" variant="heading-default-l">
-                Brought to you by indie creators
+                Brought to you by the Ethereum community
                 <br /> behind stellar projects:
               </Heading>
               <LogoCloud
@@ -270,26 +272,26 @@ export default function Home() {
                 logos={[
                   {
                     icon: false,
-                    wordmarkSrc: "/trademark/dopler-wordmark.svg",
-                    href: "https://dropler.app",
+                    wordmarkSrc: "/trademark/ethereum-wordmark.svg",
+                    href: "https://ethereum.org",
                     size: "m",
                   },
                   {
                     icon: false,
-                    wordmarkSrc: "/trademark/design-engineers-wordmark.svg",
-                    href: "https://club.dropler.io",
+                    wordmarkSrc: "/trademark/consensys-wordmark.svg",
+                    href: "https://consensys.net",
                     size: "m",
                   },
                   {
                     icon: false,
-                    wordmarkSrc: "/trademark/enroll-wordmark.svg",
-                    href: "https://enroll.dopler.app",
+                    wordmarkSrc: "/trademark/metamask-wordmark.svg",
+                    href: "https://metamask.io",
                     size: "m",
                   },
                   {
                     icon: false,
-                    wordmarkSrc: "/trademark/magic-portfolio-wordmark.svg",
-                    href: "https://magic-portfolio.com",
+                    wordmarkSrc: "/trademark/infura-wordmark.svg",
+                    href: "https://infura.io",
                     size: "m",
                   },
                 ]}
@@ -334,7 +336,7 @@ export default function Home() {
                 />
                 <Logo wordmark={false} size="l" />
                 <Heading as="h3" variant="display-default-s">
-                  Welcome to Once UI
+                  Welcome to Powered by Ethereum
                 </Heading>
                 <Text onBackground="neutral-medium" marginBottom="24">
                   Log in or
@@ -468,7 +470,7 @@ export default function Home() {
                     gap="12"
                     onSolid="neutral-strong"
                   >
-                    <Text variant="body-default-xl">Lorant One</Text>
+                    <Text variant="body-default-xl">Ethereum Card</Text>
                     <Row
                       fillWidth
                       horizontal="space-between"
@@ -695,7 +697,7 @@ export default function Home() {
                   src="/images/l.jpg"
                 />
                 <Heading marginTop="24" as="h3" variant="display-default-m">
-                  Lorant One
+                  Ethereum User
                 </Heading>
                 <Text align="center" onBackground="neutral-weak" marginBottom="24">
                   165 connections
@@ -745,14 +747,14 @@ export default function Home() {
                     radius="top"
                     label="Name"
                     labelAsPlaceholder
-                    defaultValue="Lorant One"
+                    defaultValue="Ethereum User"
                     id="name"
                   />
                   <Input
                     radius="bottom"
                     label="Email"
                     labelAsPlaceholder
-                    defaultValue="lorant@once-ui.com"
+                    defaultValue="user@ethereum.org"
                     id="profileEmail"
                   />
                 </Column>
@@ -883,7 +885,7 @@ export default function Home() {
                 maxWidth={40}
                 codeInstances={[
                   {
-                    code: `git clone https://github.com/once-ui-system/nextjs-starter.git`,
+                    code: `git clone https://github.com/ethereum/ethereum-starter.git`,
                     language: "tsx",
                     label: "tsx",
                   },
@@ -983,9 +985,9 @@ export default function Home() {
           >
             <Logo wordmark={false} size="s" />
             <Text size="m">
-              <Text onBackground="neutral-weak">2024 /</Text> Once UI
+              <Text onBackground="neutral-weak">{new Date().getFullYear()} /</Text> Powered by Ethereum
             </Text>
-            <SmartLink href="https://github.com/once-ui-system/nextjs-starter?tab=MIT-1-ov-file">
+            <SmartLink href="https://github.com/ethereum/ethereum-starter?tab=MIT-1-ov-file">
               MIT License
             </SmartLink>
           </Column>

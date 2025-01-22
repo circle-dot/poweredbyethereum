@@ -61,7 +61,7 @@ const Logo: React.FC<LogoProps> = ({
             height: `var(--static-space-${sizeMap[size]})`,
             width: "auto",
           }}
-          alt="Trademark"
+          alt="Powered by Ethereum"
           src={iconSrc}
         />
       )}

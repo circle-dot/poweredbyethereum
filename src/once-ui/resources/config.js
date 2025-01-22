@@ -1,4 +1,4 @@
-const baseURL = "demo.once-ui.com";
+const baseURL = "poweredbyethereum.com";
 
 // default customization applied to the HTML in the main layout.tsx
 const style = {
@@ -16,15 +16,15 @@ const style = {
 
 // default metadata
 const meta = {
-  title: "Once UI - Your Personalized Design System for Next.js",
+  title: "Powered by Ethereum - Empowering the Decentralized Web",
   description:
-    "An open-source design system and component library for Next.js that emphasizes easy styling and accessibility in UI development.",
+    "Join the Ethereum community and explore the decentralized web with our open-source resources and tools.",
 };
 
 // default open graph data
 const og = {
-  title: "Once UI for Next.js",
-  description: "We let designers code and developers design.",
+  title: "Powered by Ethereum - Empowering the Decentralized Web",
+  description: "Join the Ethereum community and explore the decentralized web with our open-source resources and tools.",
   type: "website",
   image: "/images/cover.jpg"
 };
@@ -33,16 +33,16 @@ const og = {
 const schema = {
   logo: "",
   type: "Organization",
-  name: "One UI",
-  description: "Once UI is an open-source design system and component library for Next.js.",
+  name: "powered by ethereum",
+  description: "Join the Ethereum community and explore the decentralized web with our open-source resources and tools.",
   email: "",
 };
 
 // social links
 const social = {
-  twitter: "https://www.twitter.com/_onceui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  twitter: "https://www.twitter.com/ethereum",
+  // linkedin: "https://www.linkedin.com/company/once-ui/",
+  // discord: "https://discord.com/invite/5EyAQ4eNdS",
 };
 
 export { baseURL, style, meta, og, schema, social };
