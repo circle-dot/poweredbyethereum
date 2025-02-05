@@ -4,6 +4,7 @@ import React, { forwardRef, useState, useEffect } from "react";
 import classNames from "classnames";
 import { Grid } from "./Grid";
 import { Logo } from "./Logo";
+import { Text } from "./Text";
 import styles from "./LogoCloud.module.scss";
 import type { ComponentProps } from "react";
 import { Flex } from "./Flex";
@@ -62,6 +63,8 @@ const LogoCloud = forwardRef<HTMLDivElement, LogoCloudProps>(
             paddingX="24"
             paddingY="20"
             radius="l"
+            direction="column"
+            gap="8"
           >
             <Logo
               className={styles.logo}
@@ -71,6 +74,7 @@ const LogoCloud = forwardRef<HTMLDivElement, LogoCloudProps>(
               }}
               {...logo}
             />
+            <Text>{logo.name}</Text>
           </Flex>
         ))}
       </Grid>

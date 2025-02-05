@@ -5,7 +5,7 @@ import { Flex, Text, SegmentedControl, IconButton, Scroller, Column } from ".";
 
 import styles from "./StylePanel.module.scss";
 import classNames from "classnames";
-import { style } from "../resources/config";
+import { style } from "@/app/resources/config";
 
 interface StylePanelProps extends React.ComponentProps<typeof Flex> {
   style?: React.CSSProperties;
@@ -131,25 +131,25 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
             Shape
           </Text>
           <Flex gap="4">
-              {shapes.map((radius, index) => (
+            {shapes.map((radius, index) => (
               <Flex
-                  data-border={shapes[index]}
-                  key={radius}
-                  horizontal="center"
-                  vertical="center"
-                  className={classNames(
+                data-border={shapes[index]}
+                key={radius}
+                horizontal="center"
+                vertical="center"
+                className={classNames(
                   styles.select,
                   selectedShape === radius ? styles.selected : "",
-                  )}
-                  onClick={() => {
+                )}
+                onClick={() => {
                   setSelectedShape(radius);
-                  }}
+                }}
               >
-                  <IconButton variant="ghost" size="m">
+                <IconButton variant="ghost" size="m">
                   <div className={classNames(styles.neutral, styles.swatch)}></div>
-                  </IconButton>
+                </IconButton>
               </Flex>
-              ))}
+            ))}
           </Flex>
         </Flex>
       </Column>

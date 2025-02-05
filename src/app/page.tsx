@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-
+import React, { ComponentProps } from "react";
 import {
   Heading,
   Text,
@@ -9,54 +8,22 @@ import {
   Icon,
   InlineCode,
   Logo,
-  Input,
-  Avatar,
-  AvatarGroup,
-  Textarea,
-  PasswordInput,
-  SegmentedControl,
   SmartLink,
-  Dialog,
-  Feedback,
-  SmartImage,
   Line,
   LogoCloud,
   Background,
-  Select,
-  useToast,
   Card,
   Fade,
-  StatusIndicator,
-  DateRangePicker,
-  DateRange,
-  TiltFx,
-  HoloFx,
   IconButton,
-  TagInput,
-  Switch,
   Column,
   Row,
-  StyleOverlay,
 } from "@/once-ui/components";
-import { CodeBlock, MediaUpload } from "@/once-ui/modules";
+
+import projects from "@/app/resources/projects";
+
+type LogoProps = ComponentProps<typeof Logo>;
 
 export default function Home() {
-  const [selectedValue, setSelectedValue] = useState("");
-  const [selectedRange, setSelectedRange] = useState<DateRange>();
-  const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
-  const [isSecondDialogOpen, setIsSecondDialogOpen] = useState(false);
-  const [firstDialogHeight, setFirstDialogHeight] = useState<number>();
-  const { addToast } = useToast();
-  const [intro, setIntro] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [tags, setTags] = useState<string[]>(["Ethereum", "Blockchain", "Decentralization"]);
-  const [twoFA, setTwoFA] = useState(false);
-
-  const handleSelect = (value: string) => {
-    console.log("Selected option:", value);
-    setSelectedValue(value);
-  };
 
   const links = [
     {
@@ -75,26 +42,6 @@ export default function Home() {
       description: "Join the Ethereum community",
     },
   ];
-
-  const validateIntro = (value: React.ReactNode) => {
-    if (typeof value === "string" && value.length < 10) {
-      return (
-        <Row horizontal="center" marginBottom="12" gap="8">
-          <Icon name="errorCircle" />
-          Intro must be at least 10 characters long.
-        </Row>
-      );
-    }
-    return null;
-  };
-
-  const validateLogin = () => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!regex.test(email)) {
-      return "Email and / or password is invalid.";
-    }
-    return null;
-  };
 
   return (
     <Column fillWidth paddingY="80" paddingX="s" horizontal="center" flex={1}>
@@ -121,40 +68,15 @@ export default function Home() {
           paddingLeft="32"
           paddingY="20"
         >
-          <Text variant="body-strong-m" as="a" href="https://poweredbyethereum.org">
-            powered by ethereum
-          </Text>
+          <img src="/images/logo-dark.png" alt="powered by ethereum" style={{ width: "200px", height: "auto" }} />
           <Row gap="12" hide="s">
-            {/* <Button
-              href="https://discord.com/invite/ethereum"
-              prefixIcon="discord"
-              size="s"
-              label="Discord"
-              weight="default"
-              variant="tertiary"
-            /> */}
-            <Button
-              href="https://github.com/circle-dot/poweredbyethereum"
-              prefixIcon="github"
-              size="s"
-              label="GitHub"
-              weight="default"
-              variant="tertiary"
-            />
-            {/* <StyleOverlay top="20" right="24" /> */}
           </Row>
           <Row gap="16" show="s" horizontal="center" paddingRight="24">
-            {/* <IconButton
-              href="https://discord.com/invite/ethereum"
-              icon="discord"
-              variant="tertiary"
-            /> */}
             <IconButton
               href="https://github.com/circle-dot/poweredbyethereum"
               icon="github"
               variant="tertiary"
             />
-            {/* <StyleOverlay top="20" right="24" /> */}
           </Row>
         </Row>
       </Row>
@@ -227,676 +149,46 @@ export default function Home() {
             }}
           />
           <Column fillWidth horizontal="center" gap="32" padding="32" position="relative">
-            <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8">
-              Start by editing
-              <Text onBackground="brand-medium" marginLeft="8">
-                app/page.tsx
-              </Text>
-            </InlineCode>
             <Heading wrap="balance" variant="display-default-l" align="center" marginBottom="16">
-              Harness the power of Ethereum
+              Ethereum
+              <br />
+              the world computer
             </Heading>
             <Button
               id="readDocs"
               target="_blank"
-              label="Open design system"
-              href="https://poweredbyethereum.org/docs"
+              label="Start building"
+              href="https://ethereum.org/en/developers/"
               variant="secondary"
               arrowIcon
             />
             <Column horizontal="center" paddingTop="64" fillWidth gap="24">
               <Line maxWidth={4} marginBottom="16" background="neutral-alpha-medium" />
-              <AvatarGroup
-                marginBottom="8"
-                reverse
-                size="s"
-                avatars={[
-                  {
-                    src: "/images/l.jpg",
-                  },
-                  {
-                    src: "/images/z.jpg",
-                  },
-                ]}
-              />
+
               <Heading marginBottom="12" as="h2" align="center" variant="heading-default-l">
-                Brought to you by the Ethereum community
-                <br /> behind stellar projects:
+                Projects powered by Ethereum:
               </Heading>
+              <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8" >
+                <a href="https://github.com/circle-dot/poweredbyethereum" target="_blank" rel="noopener noreferrer">
+                  Showcase your
+                  <Text onBackground="brand-medium" marginX="8">
+                    onchain
+                  </Text>
+                  project
+                </a>
+              </InlineCode>
               <LogoCloud
                 paddingBottom="104"
                 columns="3"
                 mobileColumns="1"
                 limit={3}
                 fillWidth
-                logos={[
-                  {
-                    icon: false,
-                    wordmarkSrc: "/trademark/ethereum-wordmark.svg",
-                    href: "https://ethereum.org",
-                    size: "m",
-                  },
-                  {
-                    icon: false,
-                    wordmarkSrc: "/trademark/consensys-wordmark.svg",
-                    href: "https://consensys.net",
-                    size: "m",
-                  },
-                  {
-                    icon: false,
-                    wordmarkSrc: "/trademark/metamask-wordmark.svg",
-                    href: "https://metamask.io",
-                    size: "m",
-                  },
-                  {
-                    icon: false,
-                    wordmarkSrc: "/trademark/infura-wordmark.svg",
-                    href: "https://infura.io",
-                    size: "m",
-                  },
-                ]}
+                logos={projects as LogoProps[]}
               />
             </Column>
-          </Column>
-          <Column fillWidth paddingX="32" gap="12" horizontal="center" position="relative">
-            <Heading as="h2" variant="display-default-m">
-              Showcase
-            </Heading>
-            <Text marginBottom="32" align="center" onBackground="neutral-weak">
-              Tiny snippets to inspire your next project
-            </Text>
-
-            {/* LOGIN */}
-            <Row
-              marginY="32"
-              background="overlay"
-              fillWidth
-              radius="xl"
-              border="neutral-alpha-weak"
-              overflow="hidden"
-            >
-              <Row fill hide="m">
-                <SmartImage src="/images/login.png" alt="Preview image" sizes="560px" />
-              </Row>
-              <Column fillWidth horizontal="center" gap="20" padding="32" position="relative">
-                <Background
-                  mask={{
-                    x: 100,
-                    y: 0,
-                    radius: 75,
-                  }}
-                  position="absolute"
-                  grid={{
-                    display: true,
-                    opacity: 50,
-                    width: "0.5rem",
-                    color: "neutral-alpha-medium",
-                    height: "1rem",
-                  }}
-                />
-                <Logo wordmark={false} size="l" />
-                <Heading as="h3" variant="display-default-s">
-                  Welcome to Powered by Ethereum
-                </Heading>
-                <Text onBackground="neutral-medium" marginBottom="24">
-                  Log in or
-                  <SmartLink href="/">sign up</SmartLink>
-                </Text>
-                <Column fillWidth gap="8">
-                  <Button
-                    label="Continue with Google"
-                    fillWidth
-                    variant="secondary"
-                    weight="default"
-                    prefixIcon="google"
-                    size="l"
-                  />
-                  <Button
-                    label="Continue with GitHub"
-                    fillWidth
-                    variant="secondary"
-                    weight="default"
-                    prefixIcon="github"
-                    size="l"
-                  />
-                </Column>
-                <Row fillWidth paddingY="24">
-                  <Row onBackground="neutral-weak" fillWidth gap="24" vertical="center">
-                    <Line />/<Line />
-                  </Row>
-                </Row>
-                <Column gap="-1" fillWidth>
-                  <Input
-                    id="email"
-                    label="Email"
-                    labelAsPlaceholder
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    validate={validateLogin}
-                    errorMessage={false}
-                    radius="top"
-                  />
-                  <PasswordInput
-                    autoComplete="new-password"
-                    id="password"
-                    label="Password"
-                    labelAsPlaceholder
-                    radius="bottom"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    validate={validateLogin}
-                  />
-                </Column>
-                <Button
-                  id="login"
-                  label="Log in"
-                  arrowIcon
-                  fillWidth
-                  onClick={() => {
-                    addToast({
-                      variant: "success",
-                      message: "Wohoo! It's a toast!",
-                    });
-                  }}
-                />
-              </Column>
-            </Row>
           </Column>
         </Column>
-
-        {/* PAYMENT */}
         <Row
-          paddingX="32"
-          fillWidth
-          paddingY="160"
-          gap="64"
-          position="relative"
-          mobileDirection="column"
-          vertical="center"
-        >
-          <Background
-            style={{ left: "-1px" }}
-            borderTop="neutral-alpha-medium"
-            mask={{
-              x: 0,
-              y: 50,
-              radius: 100,
-            }}
-            position="absolute"
-            grid={{
-              display: true,
-              opacity: 100,
-              width: "10%",
-              color: "neutral-alpha-medium",
-              height: "1.25%",
-            }}
-          />
-          <Row
-            position="relative"
-            shadow="xl"
-            fillWidth
-            border="neutral-alpha-medium"
-            borderStyle="dashed"
-            background="page"
-            radius="xl"
-          >
-            <TiltFx
-              aspectRatio="16 / 9"
-              fillWidth
-              radius="xl"
-              border="accent-alpha-weak"
-              overflow="hidden"
-            >
-              <HoloFx fill>
-                <Background
-                  fill
-                  position="absolute"
-                  gradient={{
-                    display: true,
-                    tilt: -45,
-                    height: 150,
-                    width: 100,
-                    x: 75,
-                    y: -50,
-                    colorStart: "brand-solid-strong",
-                    colorEnd: "accent-solid-weak",
-                  }}
-                >
-                  <Column
-                    fill
-                    position="absolute"
-                    padding="24"
-                    vertical="end"
-                    gap="12"
-                    onSolid="neutral-strong"
-                  >
-                    <Text variant="body-default-xl">Ethereum Card</Text>
-                    <Row
-                      fillWidth
-                      horizontal="space-between"
-                      vertical="end"
-                      paddingRight="16"
-                    >
-                      <Column gap="4">
-                        <Text variant="body-default-m">08 / 27</Text>
-                        <Text variant="body-default-m">1234 5678 1234 5678</Text>
-                      </Column>
-                      <Icon name="visa" size="xl" />
-                    </Row>
-                  </Column>
-                </Background>
-              </HoloFx>
-            </TiltFx>
-          </Row>
-          <Column position="relative" fillWidth gap="-1">
-            <Row fillWidth vertical="center" horizontal="space-between" marginBottom="32">
-              <Heading as="h3" variant="display-default-xs">
-                Fill in your card details
-              </Heading>
-              <IconButton
-                data-border="rounded"
-                variant="tertiary"
-                icon="chevronRight"
-                tooltip="Next"
-                tooltipPosition="left"
-              />
-            </Row>
-            <Input
-              id="cardnumber"
-              label="Card number"
-              labelAsPlaceholder
-              radius="top"
-              defaultValue="1234 5678 1234 5678"
-            />
-            <Row fillWidth gap="-1">
-              <Input
-                id="expiry"
-                label="Expiry date"
-                labelAsPlaceholder
-                radius="bottom-left"
-                defaultValue="08 / 27"
-              />
-              <Input
-                id="cvv"
-                label="CVV"
-                labelAsPlaceholder
-                radius="bottom-right"
-                defaultValue="123"
-              />
-            </Row>
-          </Column>
-        </Row>
-
-        {/* BOOKING */}
-        <Row
-          padding="32"
-          fillWidth
-          gap="64"
-          position="relative"
-          mobileDirection="column"
-          vertical="center"
-        >
-          <Background
-            fill
-            position="absolute"
-            gradient={{
-              display: true,
-              opacity: 60,
-              tilt: 0,
-              height: 100,
-              width: 100,
-              x: 50,
-              y: 0,
-              colorStart: "brand-solid-strong",
-              colorEnd: "static-transparent",
-            }}
-          />
-          <Column
-            fillWidth
-            background="surface"
-            radius="xl"
-            border="neutral-medium"
-            overflow="hidden"
-            padding="32"
-            gap="40"
-            position="relative"
-          >
-            <Row fillWidth horizontal="center" gap="-1">
-              <Column
-                maxWidth={12}
-                gap="4"
-                leftRadius="l"
-                paddingX="16"
-                paddingY="12"
-                background="surface"
-                border="neutral-medium"
-              >
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  Check in
-                </Text>
-                {selectedRange?.startDate ? (
-                  <>
-                    {selectedRange?.startDate.toLocaleDateString("default", {
-                      day: "numeric",
-                      month: "long",
-                    })}
-                  </>
-                ) : (
-                  "Add dates"
-                )}
-              </Column>
-              <Column
-                maxWidth={12}
-                gap="4"
-                rightRadius="l"
-                paddingX="16"
-                paddingY="12"
-                background="surface"
-                border="neutral-medium"
-              >
-                <Text variant="label-default-s" onBackground="neutral-weak">
-                  Check out
-                </Text>
-                {selectedRange?.endDate ? (
-                  <>
-                    {selectedRange?.endDate?.toLocaleDateString("default", {
-                      day: "numeric",
-                      month: "long",
-                    })}
-                  </>
-                ) : (
-                  "Add dates"
-                )}
-              </Column>
-            </Row>
-            <Row fillWidth horizontal="center">
-              <DateRangePicker
-                data-scaling="110"
-                size="l"
-                fitWidth
-                gap="40"
-                mobileDirection="column"
-                onChange={(range) => setSelectedRange(range)}
-                value={selectedRange}
-              />
-            </Row>
-          </Column>
-        </Row>
-
-        {/* PROFILE */}
-        <Row
-          horizontal="center"
-          paddingX="32"
-          paddingY="64"
-          fillWidth
-          gap="32"
-          position="relative"
-        >
-          <Background
-            mask={{
-              cursor: true,
-            }}
-            dots={{
-              display: true,
-              opacity: 50,
-              color: "neutral-solid-strong",
-              size: "48",
-            }}
-            fill
-            position="absolute"
-            gradient={{
-              display: true,
-              opacity: 100,
-              tilt: 0,
-              height: 100,
-              width: 200,
-              x: 50,
-              y: 0,
-              colorStart: "neutral-background-medium",
-              colorEnd: "static-transparent",
-            }}
-          />
-          <Column maxWidth={32} gap="-1">
-            <Feedback icon variant="success" radius={undefined} topRadius="l" zIndex={1}>
-              Your profile is public.
-            </Feedback>
-            <Column
-              background="page"
-              radius={undefined}
-              bottomRadius="l"
-              overflow="hidden"
-              position="relative"
-              fillWidth
-              horizontal="center"
-              border="neutral-medium"
-            >
-              <MediaUpload
-                border={undefined}
-                emptyState={<Row paddingBottom="80">Drag and drop or click to browse</Row>}
-                position="absolute"
-                aspectRatio="16 / 9"
-                sizes="560px"
-                radius={undefined}
-                initialPreviewImage="/images/profile.jpg"
-              />
-              <Column
-                paddingTop="160"
-                paddingX="32"
-                paddingBottom="32"
-                fillWidth
-                position="relative"
-                horizontal="center"
-                gap="8"
-              >
-                <Avatar
-                  zIndex={1}
-                  style={{
-                    border: "8px solid var(--page-background)",
-                  }}
-                  size="xl"
-                  src="/images/l.jpg"
-                />
-                <Heading marginTop="24" as="h3" variant="display-default-m">
-                  Ethereum User
-                </Heading>
-                <Text align="center" onBackground="neutral-weak" marginBottom="24">
-                  165 connections
-                </Text>
-                <SegmentedControl
-                  onToggle={(value) => console.log("SegmentedControl changed", value)}
-                  buttons={[
-                    {
-                      size: "l",
-                      value: "profile",
-                      label: "Profile",
-                    },
-                    {
-                      size: "l",
-                      value: "settings",
-                      label: "Settings",
-                    },
-                    {
-                      size: "l",
-                      value: "notifications",
-                      label: (
-                        <Row gap="8">
-                          Notifications
-                          <StatusIndicator size="s" color="cyan" />
-                        </Row>
-                      ),
-                    },
-                    {
-                      size: "l",
-                      value: "integrations",
-                      label: "Integrations",
-                    },
-                    {
-                      size: "l",
-                      value: "inbox",
-                      label: "Inbox",
-                    },
-                    {
-                      size: "l",
-                      value: "requests",
-                      label: "Requests",
-                    },
-                  ]}
-                />
-                <Column paddingY="32" fillWidth gap="-1">
-                  <Input
-                    radius="top"
-                    label="Name"
-                    labelAsPlaceholder
-                    defaultValue="Ethereum User"
-                    id="name"
-                  />
-                  <Input
-                    radius="bottom"
-                    label="Email"
-                    labelAsPlaceholder
-                    defaultValue="user@ethereum.org"
-                    id="profileEmail"
-                  />
-                </Column>
-                <Textarea
-                  id="intro"
-                  label="Intro"
-                  lines="auto"
-                  value={intro}
-                  onChange={(e) => setIntro(e.target.value)}
-                  validate={validateIntro}
-                />
-                <TagInput
-                  id="interests"
-                  value={tags}
-                  onChange={(newTags: string[]) => {
-                    setTags(newTags);
-                  }}
-                  label="Interests"
-                />
-                <Select
-                  searchable
-                  labelAsPlaceholder
-                  id="select"
-                  label="Country"
-                  value={selectedValue}
-                  options={[
-                    {
-                      value: "Austria",
-                      label: "Austria",
-                      onClick: (value) => console.log("Visiblity set: ", value),
-                    },
-                    {
-                      value: "Finland",
-                      label: "Finland",
-                      onClick: (value) => console.log("Visiblity set: ", value),
-                    },
-                    {
-                      value: "New Zeland",
-                      label: "New Zeland",
-                      onClick: (value) => console.log("Visiblity set: ", value),
-                    },
-                    {
-                      value: "Norway",
-                      label: "Norway",
-                      onClick: (value) => console.log("Visiblity set: ", value),
-                    },
-                    {
-                      value: "United Kingdom",
-                      label: "United Kingdom",
-                      onClick: (value) => console.log("Visiblity set: ", value),
-                    },
-                    {
-                      value: "United States",
-                      label: "United States",
-                      onClick: (value) => console.log("Visiblity set: ", value),
-                    },
-                  ]}
-                  onSelect={handleSelect}
-                />
-                <Button
-                  className="mt-32"
-                  prefixIcon="security"
-                  variant="secondary"
-                  onClick={() => setIsFirstDialogOpen(true)}
-                >
-                  Password and security
-                </Button>
-              </Column>
-            </Column>
-          </Column>
-        </Row>
-
-        {/* CODE PREVIEW */}
-        <TiltFx fillWidth paddingX="32" paddingTop="64">
-          <Column
-            border="neutral-alpha-weak"
-            paddingX="32"
-            radius="xl"
-            overflow="hidden"
-            paddingY="160"
-            fillWidth
-            position="relative"
-          >
-            <Background
-              mask={{
-                x: 100,
-                y: 0,
-              }}
-              position="absolute"
-              grid={{
-                display: true,
-                color: "neutral-alpha-medium",
-                width: "2rem",
-                height: "2rem",
-              }}
-            />
-            <Background
-              mask={{
-                x: 0,
-                y: 100,
-                radius: 100,
-              }}
-              position="absolute"
-              grid={{
-                display: true,
-                color: "brand-alpha-strong",
-                width: "12",
-                height: "12",
-              }}
-              gradient={{
-                display: true,
-                opacity: 100,
-                height: 100,
-                width: 100,
-                tilt: 0,
-                x: 0,
-                y: 100,
-                colorStart: "brand-solid-strong",
-                colorEnd: "brand-background-medium",
-              }}
-            />
-            <Column horizontal="center" gap="48" fillWidth position="relative">
-              <Heading align="center" as="h2" variant="display-default-l">
-                Quick start
-              </Heading>
-              <CodeBlock
-                compact
-                maxWidth={40}
-                codeInstances={[
-                  {
-                    code: `git clone https://github.com/ethereum/ethereum-starter.git`,
-                    language: "tsx",
-                    label: "tsx",
-                  },
-                ]}
-              />
-            </Column>
-          </Column>
-        </TiltFx>
-
-        <Row
-          position="relative"
           fillWidth
           paddingX="32"
           paddingTop="160"
@@ -993,51 +285,6 @@ export default function Home() {
           </Column>
         </Row>
       </Column>
-
-      <Dialog
-        isOpen={isFirstDialogOpen}
-        onClose={() => setIsFirstDialogOpen(false)}
-        title="Account details"
-        description="Manage your security settings and password."
-        base={isSecondDialogOpen}
-        onHeightChange={(height) => setFirstDialogHeight(height)}
-        footer={
-          <>
-            <Button variant="secondary" onClick={() => setIsFirstDialogOpen(false)}>
-              Close
-            </Button>
-          </>
-        }
-      >
-        <Column paddingTop="24" fillWidth gap="24">
-          <Switch
-            reverse
-            isChecked={twoFA}
-            onToggle={() => setTwoFA(!twoFA)}
-            label="2FA"
-            description="Enable two factor authentication"
-          />
-          <Button onClick={() => setIsSecondDialogOpen(true)}>Change password</Button>
-        </Column>
-      </Dialog>
-      <Dialog
-        isOpen={isSecondDialogOpen}
-        onClose={() => setIsSecondDialogOpen(false)}
-        title="Change password"
-        stack
-        description="Choose a new password for your account."
-        minHeight={firstDialogHeight}
-        footer={
-          <>
-            <Button variant="secondary" onClick={() => setIsSecondDialogOpen(false)}>
-              Close
-            </Button>
-            <Button onClick={() => setIsSecondDialogOpen(false)}>Save</Button>
-          </>
-        }
-      >
-        <PasswordInput id="resetPassword" label="New password" />
-      </Dialog>
     </Column>
   );
 }

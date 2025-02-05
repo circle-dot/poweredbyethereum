@@ -24,6 +24,7 @@ interface LogoProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   iconSrc?: string;
   wordmarkSrc?: string;
   href?: string;
+  name?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({

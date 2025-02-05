@@ -18,3 +18,12 @@ Visit [poweredbyethereum.org](https://poweredbyethereum.org) to learn more.
 
 # Getting Started
 Join the movement by integrating Ethereum into your application.
+
+# Add Your Project
+To add your project to the Powered by Ethereum initiative, follow these steps:
+1. Fork the repository by clicking the button below.
+2. Create a new branch for your project.
+3. Add your project details in the appropriate section.
+4. Submit a pull request for review.
+
+[![Fork the Repo](https://img.shields.io/badge/Fork%20the%20Repo-blue?style=for-the-badge&logo=github)](https://github.com/your-repo/poweredbyethereum/fork)
