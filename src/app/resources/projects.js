@@ -23,10 +23,10 @@ const projects = [
     },
     {
         icon: false,
-        wordmarkSrc: "/images/logo-colors.png",
-        href: "https://ethereum.org",
+        wordmarkSrc: "/images/projects/precog.png",
+        href: "https://precog.market/",
         size: "xl",
-        name: "Project Four",
+        name: "Precog",
     },
     {
         icon: false,
