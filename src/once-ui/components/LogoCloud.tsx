@@ -39,7 +39,7 @@ const LogoCloud = forwardRef<HTMLDivElement, LogoCloudProps>(
             const currentIndices = currentLogos.map((logo) => logos.findIndex((l) => l === logo));
 
             const nextIndices = currentIndices
-              .map((index) => (index + 1) % logos.length)
+              .map((index) => (index + limit) % logos.length)
               .sort((a, b) => a - b);
 
             const nextLogos = nextIndices.map((index) => logos[index]);

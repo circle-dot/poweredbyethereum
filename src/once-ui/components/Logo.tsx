@@ -12,7 +12,7 @@ const sizeMap: Record<string, SpacingToken> = {
   s: "24",
   m: "32",
   l: "40",
-  xl: "48",
+  xl: "56", // Increased size for xl
 };
 
 interface LogoProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -52,6 +52,7 @@ const Logo: React.FC<LogoProps> = ({
         <div
           style={{
             height: `var(--static-space-${sizeMap[size]})`,
+            margin: "8px", // Added margin
           }}
           className={styles.icon}
         />
@@ -61,6 +62,7 @@ const Logo: React.FC<LogoProps> = ({
           style={{
             height: `var(--static-space-${sizeMap[size]})`,
             width: "auto",
+            margin: "8px", // Added margin
           }}
           alt="Powered by Ethereum"
           src={iconSrc}
@@ -70,6 +72,7 @@ const Logo: React.FC<LogoProps> = ({
         <div
           style={{
             height: `var(--static-space-${sizeMap[size]})`,
+            margin: "8px", // Added margin
           }}
           className={styles.type}
         />
@@ -79,6 +82,7 @@ const Logo: React.FC<LogoProps> = ({
           style={{
             height: `var(--static-space-${sizeMap[size]})`,
             width: "auto",
+            margin: "8px", // Added margin
           }}
           alt="Trademark"
           src={wordmarkSrc}

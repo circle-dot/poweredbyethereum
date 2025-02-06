@@ -168,13 +168,17 @@ export default function Home() {
               <Heading marginBottom="12" as="h2" align="center" variant="heading-default-l">
                 Projects powered by Ethereum:
               </Heading>
-              <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8" >
+              <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8" zIndex={1}>
                 <a href="https://github.com/circle-dot/poweredbyethereum" target="_blank" rel="noopener noreferrer">
-                  Showcase your
+                  <Text onBackground="brand-strong">
+                    Showcase your
+                  </Text>
                   <Text onBackground="brand-medium" marginX="8">
                     onchain
                   </Text>
-                  project
+                  <Text onBackground="brand-strong">
+                    project
+                  </Text>
                 </a>
               </InlineCode>
               <LogoCloud
