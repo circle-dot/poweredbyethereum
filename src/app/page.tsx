@@ -64,22 +64,34 @@ export default function Home() {
           data-border="rounded"
           horizontal="space-between"
           maxWidth="l"
-          paddingRight="64"
+          paddingRight="32"
           paddingLeft="32"
-          paddingY="20"
+          paddingY="40"
         >
           <img src="/images/logo-dark.png" alt="powered by ethereum" style={{ width: "200px", height: "auto" }} />
-          <Row gap="12" hide="s">
-          </Row>
-          <Row gap="16" show="s" horizontal="center" paddingRight="24">
-            <IconButton
-              href="https://github.com/circle-dot/poweredbyethereum"
-              icon="github"
-              variant="tertiary"
-            />
-          </Row>
+          <Button
+            href="https://www.figma.com/design/kfQuN6abepwjDTCt0eeKoQ/Powered-By-Ethereum-Brand-Assets?node-id=1-493&t=CB2xYvvdzJ47zKRQ-1"
+            variant="primary"
+            style={{
+              color: "#fff",
+              borderRadius: "24px",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              transition: "background 0.3s ease",
+              background: "linear-gradient(90deg, #3AC6FF 0%, #5B69CB 100%)",
+            }}
+            onMouseLeave={(e: any) => {
+              e.currentTarget.style.background = "linear-gradient(90deg, #3AC6FF 0%, #5B69CB 100%)";
+            }}
+            onMouseEnter={(e: any) => {
+              e.currentTarget.style.background = "transparent";
+            }}
+          >
+            Access Design Assets
+          </Button>
         </Row>
       </Row>
+      <Row fillWidth horizontal="center" style={{ marginTop: "40px" }} />
       <Column
         overflow="hidden"
         as="main"

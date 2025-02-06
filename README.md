@@ -27,3 +27,8 @@ To add your project to the Powered by Ethereum initiative, follow these steps:
 4. Submit a pull request for review.
 
 [![Fork the Repo](https://img.shields.io/badge/Fork%20the%20Repo-blue?style=for-the-badge&logo=github)](https://github.com/your-repo/poweredbyethereum/fork)
+
+# Brand Assets
+To be included as a project, make sure to add the Powered by Ethereum brand assets to your application. Click the button below to access the assets:
+
+[![Access Brand Assets](https://img.shields.io/badge/Access%20Brand%20Assets-green?style=for-the-badge&logo=figma)](https://www.figma.com/design/kfQuN6abepwjDTCt0eeKoQ/Powered-By-Ethereum-Brand-Assets?node-id=1-493&t=CB2xYvvdzJ47zKRQ-1)
