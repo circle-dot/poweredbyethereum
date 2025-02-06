@@ -70,7 +70,7 @@ export default function Home() {
         >
           <img src="/images/logo-dark.png" alt="powered by ethereum" style={{ width: "200px", height: "auto" }} />
           <Button
-            href="https://www.figma.com/design/kfQuN6abepwjDTCt0eeKoQ/Powered-By-Ethereum-Brand-Assets?node-id=1-493&t=CB2xYvvdzJ47zKRQ-1"
+            href="https://www.figma.com/community/file/1469380523456045740/powered-by-ethereum"
             variant="primary"
             style={{
               color: "#fff",
@@ -87,7 +87,7 @@ export default function Home() {
               e.currentTarget.style.background = "transparent";
             }}
           >
-            Access Design Assets
+            Access Figma Assets
           </Button>
         </Row>
       </Row>
