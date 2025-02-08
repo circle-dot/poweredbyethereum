@@ -33,14 +33,14 @@ const projects = [
         wordmarkSrc: "/images/logo-colors.png",
         href: "https://ethereum.org",
         size: "xl",
-        name: "Project Five",
+        name: "Your Project",
     },
     {
         icon: false,
         wordmarkSrc: "/images/logo-colors.png",
         href: "https://ethereum.org",
         size: "xl",
-        name: "Project Six",
+        name: "Your Project",
     },
     // Add your project creating a pull request
 ];

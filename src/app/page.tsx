@@ -6,7 +6,6 @@ import {
   Text,
   Button,
   Icon,
-  InlineCode,
   Logo,
   SmartLink,
   Line,
@@ -14,7 +13,6 @@ import {
   Background,
   Card,
   Fade,
-  IconButton,
   Column,
   Row,
 } from "@/once-ui/components";
@@ -41,6 +39,15 @@ export default function Home() {
       title: "Community",
       description: "Join the Ethereum community",
     },
+  ];
+
+  const logos = [
+    "/images/logo-2.png",
+    "/images/logo-1.png",
+    "/images/logo-4.png",
+    "/images/logo-3.png",
+    "/images/logo-6.png",
+    "/images/logo-5.png",
   ];
 
   return (
@@ -102,6 +109,56 @@ export default function Home() {
         border="neutral-alpha-weak"
         fillWidth
       >
+        <Background
+          mask={{
+            x: 0,
+            y: 48,
+          }}
+          position="absolute"
+          grid={{
+            display: true,
+            width: "0.25rem",
+            color: "neutral-alpha-medium",
+            height: "0.25rem",
+          }}
+        />
+        <Background
+          mask={{
+            x: 80,
+            y: 0,
+            radius: 100,
+          }}
+          position="absolute"
+          gradient={{
+            display: true,
+            tilt: -35,
+            height: 50,
+            width: 75,
+            x: 100,
+            y: 40,
+            colorStart: "accent-solid-medium",
+            colorEnd: "static-transparent",
+          }}
+        />
+        <Background
+          mask={{
+            x: 100,
+            y: 0,
+            radius: 100,
+          }}
+          position="absolute"
+          gradient={{
+            display: true,
+            opacity: 100,
+            tilt: -35,
+            height: 20,
+            width: 120,
+            x: 120,
+            y: 35,
+            colorStart: "brand-solid-strong",
+            colorEnd: "static-transparent",
+          }}
+        />
         <Column
           fillWidth
           horizontal="center"
@@ -109,78 +166,52 @@ export default function Home() {
           radius="xl"
           paddingTop="80"
           position="relative"
+          zIndex={1}
         >
-          <Background
-            mask={{
-              x: 0,
-              y: 48,
-            }}
-            position="absolute"
-            grid={{
-              display: true,
-              width: "0.25rem",
-              color: "neutral-alpha-medium",
-              height: "0.25rem",
-            }}
-          />
-          <Background
-            mask={{
-              x: 80,
-              y: 0,
-              radius: 100,
-            }}
-            position="absolute"
-            gradient={{
-              display: true,
-              tilt: -35,
-              height: 50,
-              width: 75,
-              x: 100,
-              y: 40,
-              colorStart: "accent-solid-medium",
-              colorEnd: "static-transparent",
-            }}
-          />
-          <Background
-            mask={{
-              x: 100,
-              y: 0,
-              radius: 100,
-            }}
-            position="absolute"
-            gradient={{
-              display: true,
-              opacity: 100,
-              tilt: -35,
-              height: 20,
-              width: 120,
-              x: 120,
-              y: 35,
-              colorStart: "brand-solid-strong",
-              colorEnd: "static-transparent",
-            }}
-          />
           <Column fillWidth horizontal="center" gap="32" padding="32" position="relative">
             <Heading wrap="balance" variant="display-default-l" align="center" marginBottom="16">
               Ethereum
               <br />
               the world computer
             </Heading>
+
+            <Column fillWidth horizontal="center" gap="16">
+              {
+                logos.reverse().map((logo, index) => (
+                  index % 2 === 0 ? (
+                    <Row key={index} fillWidth horizontal="center" gap="16">
+                      <img
+                        src={logo}
+                        alt={`logo-${index + 1}`}
+                        style={{ width: "250px", height: "auto", borderRadius: "12px", margin: "8px", boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                      />
+                      {logos[index + 1] && (
+                        <img
+                          src={logos[index + 1]}
+                          alt={`logo-${index + 2}`}
+                          style={{ width: "250px", height: "auto", borderRadius: "12px", margin: "8px", boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                        />
+                      )}
+                    </Row>
+                  ) : null
+                ))
+              }
+            </Column>
+
             <Button
-              id="readDocs"
+              id="accessFigma"
               target="_blank"
-              label="Start building"
-              href="https://ethereum.org/en/developers/"
+              label="View Assets"
+              href="https://github.com/circle-dot/poweredbyethereum"
               variant="secondary"
               arrowIcon
             />
             <Column horizontal="center" paddingTop="64" fillWidth gap="24">
               <Line maxWidth={4} marginBottom="16" background="neutral-alpha-medium" />
-
-              <Heading marginBottom="12" as="h2" align="center" variant="heading-default-l">
-                Projects powered by Ethereum:
-              </Heading>
-              <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8" zIndex={1}>
+              <Row position="relative" textVariant="display-default-m" align="center">
+                Projects powered by Ethereum
+              </Row>
+              {/* <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8" zIndex={1}>
                 <a href="https://github.com/circle-dot/poweredbyethereum" target="_blank" rel="noopener noreferrer">
                   <Text onBackground="brand-strong">
                     Showcase your
@@ -192,7 +223,15 @@ export default function Home() {
                     project
                   </Text>
                 </a>
-              </InlineCode>
+              </InlineCode> */}
+              <Button
+                id="addProject"
+                target="_blank"
+                label="Add your project"
+                href="https://github.com/circle-dot/poweredbyethereum"
+                variant="secondary"
+                arrowIcon
+              />
               <LogoCloud
                 paddingBottom="104"
                 columns="3"
@@ -226,7 +265,7 @@ export default function Home() {
               height: "0.25rem",
             }}
           />
-          <Row position="relative" textVariant="display-default-m" align="center">
+          {/* <Row position="relative" textVariant="display-default-m" align="center">
             Learn more
           </Row>
         </Row>
@@ -257,7 +296,7 @@ export default function Home() {
                 </Card>
               </SmartLink>
             ))}
-          </Row>
+          </Row> */}
           <Row maxWidth="32" borderTop="neutral-alpha-weak" borderBottom="neutral-medium"></Row>
         </Row>
         <Row
