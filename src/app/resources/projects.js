@@ -2,24 +2,24 @@
 const projects = [
     {
         icon: false,
-        wordmarkSrc: "/images/projects/uniswap.png",
-        href: "https://uniswap.org/",
+        wordmarkSrc: "/images/logo-colors.png",
+        href: "https://ethereum.org",
         size: "xl",
-        name: "Uniswap",
+        name: "Your Project",
     },
     {
         icon: false,
-        wordmarkSrc: "/images/projects/aave.png",
-        href: "https://aave.com/",
+        wordmarkSrc: "/images/logo-colors.png",
+        href: "https://ethereum.org",
         size: "xl",
-        name: "Aave",
+        name: "Your Project",
     },
     {
         icon: false,
-        wordmarkSrc: "/images/projects/sky.png",
-        href: "https://sky.money/",
+        wordmarkSrc: "/images/logo-colors.png",
+        href: "https://ethereum.org",
         size: "xl",
-        name: "Sky",
+        name: "Your Project",
     },
     {
         icon: false,
