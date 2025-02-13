@@ -2,7 +2,8 @@
 
 A community initiative to promote applications that leverage Ethereum for protocol security.
 
-![Powered by Ethereum](public/images/cover.jpg)
+![Powered by Ethereum](public/images/logo-dark.png#gh-dark-mode-only)
+![Powered by Ethereum](public/images/logo-light.png#gh-light-mode-only)
 
 # Key Benefits
 
@@ -14,8 +15,6 @@ Harness the power of Ethereum with:
 # Explore
 Visit [poweredbyethereum.org](https://poweredbyethereum.org) to learn more.
 
-![Powered by Ethereum](public/images/demo.png)
-
 # Getting Started
 Join the movement by integrating Ethereum into your application.
 
@@ -26,9 +25,9 @@ To add your project to the Powered by Ethereum initiative, follow these steps:
 3. Add your project details in the appropriate section.
 4. Submit a pull request for review.
 
-[![Fork the Repo](https://img.shields.io/badge/Fork%20the%20Repo-blue?style=for-the-badge&logo=github)](https://github.com/your-repo/poweredbyethereum/fork)
+[![Fork the Repo](https://img.shields.io/badge/Fork%20the%20Repo-blue?style=for-the-badge&logo=github)](https://github.com/circle-dot/poweredbyethereum/fork)
 
 # Brand Assets
 To be included as a project, make sure to add the Powered by Ethereum brand assets to your application. Click the button below to access the assets:
 
-[![Access Brand Assets](https://www.figma.com/community/file/1469380523456045740/powered-by-ethereum)
+[![Access Brand Assets](https://img.shields.io/badge/Access%20Brand%20Assets-blue?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1469380523456045740/powered-by-ethereum)
