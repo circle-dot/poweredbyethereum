@@ -1,17 +1,15 @@
 "use client";
 
-import React, { ComponentProps } from "react";
+import React, { ComponentProps, useEffect, useState } from "react";
 import {
   Heading,
   Text,
   Button,
-  Icon,
   Logo,
   SmartLink,
   Line,
   LogoCloud,
   Background,
-  Card,
   Fade,
   Column,
   Row,
@@ -22,24 +20,27 @@ import projects from "@/app/resources/projects";
 type LogoProps = ComponentProps<typeof Logo>;
 
 export default function Home() {
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  const links = [
-    {
-      href: "https://poweredbyethereum.org/docs/security",
-      title: "Security",
-      description: "Learn about decentralized security",
-    },
-    {
-      href: "https://poweredbyethereum.org/docs/interoperability",
-      title: "Interoperability",
-      description: "Integrate with Ethereum-based tools",
-    },
-    {
-      href: "https://poweredbyethereum.org/docs/community",
-      title: "Community",
-      description: "Join the Ethereum community",
-    },
-  ];
+  useEffect(() => {
+    // Check if window exists (client-side)
+    if (typeof window !== "undefined") {
+      // Initial check
+      setIsDesktop(window.innerWidth >= 768);
+
+      // Add resize listener
+      const handleResize = () => {
+        setIsDesktop(window.innerWidth >= 768);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      // Clean up
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
 
   const logos = [
     "/images/logo-2.png",
@@ -75,8 +76,8 @@ export default function Home() {
           paddingLeft="32"
           paddingY="40"
         >
-          <img src="/images/logo-dark.png" alt="powered by ethereum" style={{ width: "200px", height: "auto" }} />
-          <Button
+          <img src="/images/logo-dark.png" alt="powered by ethereum" style={{ width: "100%", maxWidth: "200px", height: "auto" }} />
+          {isDesktop && <Button
             href="https://www.figma.com/community/file/1469380523456045740/powered-by-ethereum"
             variant="primary"
             style={{
@@ -87,6 +88,7 @@ export default function Home() {
               transition: "background 0.3s ease",
               background: "linear-gradient(90deg, #3AC6FF 0%, #5B69CB 100%)",
             }}
+            className="hide-mobile"
             onMouseLeave={(e: any) => {
               e.currentTarget.style.background = "linear-gradient(90deg, #3AC6FF 0%, #5B69CB 100%)";
             }}
@@ -95,7 +97,7 @@ export default function Home() {
             }}
           >
             Access Figma Assets
-          </Button>
+          </Button>}
         </Row>
       </Row>
       <Row fillWidth horizontal="center" style={{ marginTop: "40px" }} />
@@ -177,24 +179,38 @@ export default function Home() {
 
             <Column fillWidth horizontal="center" gap="16">
               {
-                logos.reverse().map((logo, index) => (
-                  index % 2 === 0 ? (
-                    <Row key={index} fillWidth horizontal="center" gap="16">
+                isDesktop ? (
+                  // Desktop view: Two columns
+                  logos.reverse().map((logo, index) => (
+                    index % 2 === 0 ? (
+                      <Row key={index} fillWidth horizontal="center" gap="16">
+                        <img
+                          src={logo}
+                          alt={`logo-${index + 1}`}
+                          style={{ width: "250px", height: "auto", borderRadius: "12px", margin: "8px", boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                        />
+                        {logos[index + 1] && (
+                          <img
+                            src={logos[index + 1]}
+                            alt={`logo-${index + 2}`}
+                            style={{ width: "250px", height: "auto", borderRadius: "12px", margin: "8px", boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                          />
+                        )}
+                      </Row>
+                    ) : null
+                  ))
+                ) : (
+                  // Mobile view: Single column
+                  logos.reverse().map((logo, index) => (
+                    <Row key={index} fillWidth horizontal="center">
                       <img
                         src={logo}
                         alt={`logo-${index + 1}`}
                         style={{ width: "250px", height: "auto", borderRadius: "12px", margin: "8px", boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
                       />
-                      {logos[index + 1] && (
-                        <img
-                          src={logos[index + 1]}
-                          alt={`logo-${index + 2}`}
-                          style={{ width: "250px", height: "auto", borderRadius: "12px", margin: "8px", boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
-                        />
-                      )}
                     </Row>
-                  ) : null
-                ))
+                  ))
+                )
               }
             </Column>
 
@@ -211,19 +227,6 @@ export default function Home() {
               <Row position="relative" textVariant="display-default-m" align="center">
                 Projects powered by Ethereum
               </Row>
-              {/* <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8" zIndex={1}>
-                <a href="https://github.com/circle-dot/poweredbyethereum" target="_blank" rel="noopener noreferrer">
-                  <Text onBackground="brand-strong">
-                    Showcase your
-                  </Text>
-                  <Text onBackground="brand-medium" marginX="8">
-                    onchain
-                  </Text>
-                  <Text onBackground="brand-strong">
-                    project
-                  </Text>
-                </a>
-              </InlineCode> */}
               <Button
                 id="addProject"
                 target="_blank"
@@ -265,38 +268,6 @@ export default function Home() {
               height: "0.25rem",
             }}
           />
-          {/* <Row position="relative" textVariant="display-default-m" align="center">
-            Learn more
-          </Row>
-        </Row>
-        <Row fillWidth overflow="hidden">
-          <Row maxWidth="32" borderTop="neutral-alpha-weak" borderBottom="neutral-medium"></Row>
-          <Row fillWidth border="neutral-alpha-weak" mobileDirection="column">
-            {links.map((link, index) => (
-              <SmartLink unstyled fillWidth target="_blank" key={link.href} href={link.href}>
-                <Card
-                  fillWidth
-                  padding="40"
-                  gap="8"
-                  direction="column"
-                  background={undefined}
-                  borderRight={index < links.length - 1 ? "neutral-alpha-weak" : undefined}
-                  border={undefined}
-                  radius={undefined}
-                >
-                  <Row fillWidth center gap="12">
-                    <Text variant="body-strong-m" onBackground="neutral-strong">
-                      {link.title}
-                    </Text>
-                    <Icon size="s" name="arrowUpRight" />
-                  </Row>
-                  <Text align="center" variant="body-default-s" onBackground="neutral-weak">
-                    {link.description}
-                  </Text>
-                </Card>
-              </SmartLink>
-            ))}
-          </Row> */}
           <Row maxWidth="32" borderTop="neutral-alpha-weak" borderBottom="neutral-medium"></Row>
         </Row>
         <Row
